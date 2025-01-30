@@ -2,12 +2,13 @@ import json
 import re
 
 
-def update_headings_in_ipynb(ipynb_file, ):
+def update_headings_in_ipynb(ipynb_file):
     """ 指定された .ipynb ファイル内の見出しに対して、正しい番号付けを行います。 """
     with open(ipynb_file, 'r', encoding='utf-8') as f:
         data = json.load(f)
-
-    heading_counts = [1, 0, 0, 0, 0, 0]  # 見出しレベルごとのカウンター（# ～ ######）
+    # 正規表現で「Ch」以降の数字を抽出
+    number_chapter = int(re.search(r"Ch(\d+)", ipynb_file).group(1)) 
+    heading_counts = [number_chapter-1, 0, 0, 0, 0, 0]  # 見出しレベルごとのカウンター（# ～ ######）
 
     for cell in data['cells']:
         if cell['cell_type'] == 'markdown':
@@ -48,4 +49,4 @@ def update_headings_in_ipynb(ipynb_file, ):
         json.dump(data, f, indent=2, ensure_ascii=False)
 
 # 実行例
-update_headings_in_ipynb('1/test.ipynb')
+update_headings_in_ipynb('1/Ch04.ipynb')
