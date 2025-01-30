@@ -48,4 +48,4 @@ def update_headings_in_ipynb(ipynb_file):
         json.dump(data, f, indent=2, ensure_ascii=False)
 
 # 実行例
-update_headings_in_ipynb('1/test.ipynb')
+update_headings_in_ipynb('1/DeepLearningFromScratch1.ipynb')
