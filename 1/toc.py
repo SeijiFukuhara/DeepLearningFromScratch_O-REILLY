@@ -3,10 +3,11 @@ import re
 
 
 def update_headings_in_ipynb(ipynb_file):
-    """ 指定された .ipynb ファイル内の見出しに対して、正しい番号付けを行います。 """
+    """ 指定された .ipynb ファイル内の見出しに対して、正しい番号付けを行う。 """
     with open(ipynb_file, 'r', encoding='utf-8') as f:
         data = json.load(f)
     # 正規表現で「Ch」以降の数字を抽出
+    # これによって、章ごとにファイルが分割されても正しい番号付けが行われる
     number_chapter = int(re.search(r"Ch(\d+)", ipynb_file).group(1)) 
     heading_counts = [number_chapter-1, 0, 0, 0, 0, 0]  # 見出しレベルごとのカウンター（# ～ ######）
 
