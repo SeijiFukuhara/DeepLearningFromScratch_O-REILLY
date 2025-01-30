@@ -1,0 +1,15 @@
+{
+    "snippets": [
+      {
+        "name": "Markdown Figure",
+        "cell_type": "markdown",
+        "content": "<figure>\n    <img src='Ch3/NeuralNetwork.png' width='200' style='display:block; margin:auto;'>\n    <figcaption style='text-align: center;'>図3-3 これは例のキャプションです。</figcaption>\n</figure>"
+      },
+      {
+        "name": "Import Machine Learning Libraries",
+        "cell_type": "code",
+        "content": "import keras\nimport sklearn\nimport torch\nimport tensorflow as tf"
+      }
+    ]
+  }
+  

@@ -1,0 +1,111 @@
+\documentclass[11pt,a4paper,twocolumn]{jsarticle}
+
+% documentclassもここに記述するとエラーになる
+\usepackage[dvipdfmx]{xcolor} %同上
+\usepackage[dvipdfmx]{graphicx} %画像の貼り込みと文字列の変形
+% \usepackage{xcolor} %ソースコードの色付け
+\usepackage[compatibility=false]{caption} % subcaptionとの競合を避ける
+\usepackage{subcaption} % 図のサブキャプションの文字サイズを指定
+\usepackage{fancyvrb}
+
+\usepackage{pifont} %テキスト用フォント以外の”特殊な記号を集めたフォント”
+\usepackage{bm} %太字の斜体（ボールドイタリック）でベクトルを表現する
+\usepackage{bmpsize} %外部プログラムを使用せずにJPEG,PNG,BMPのサイズを計算
+\usepackage{amsmath} %数式の記述を容易にし，数式出力の品質を向上させる
+\usepackage{amssymb} %同上
+\usepackage{comment} %複数行コメントを使うためのパッケージ
+\usepackage{here} %図表の配置で[H]を使えるようにする
+\usepackage{booktabs} %文中に図を描く
+\usepackage{multirow} %同上
+\usepackage{setspace} %文書内の行間隔を設定する
+\usepackage{siunitx} %国際単位系を簡単に書けるようにする
+\usepackage{geometry} %余白の指定
+\usepackage{layout} %余白設定を可視化する
+\usepackage{ascmac}
+\usepackage{paralist} %箇条書きをするのに必要
+\usepackage{autobreak} %数式の自動改行
+\usepackage{wrapfig}
+\usepackage{titlesec}
+\usepackage{listings,jlisting} %日本語のコメントアウトをする場合jvlisting（もしくはjlisting）が必要/jlistingのほうがよい
+\usepackage{multicol} %文章レイアウトを分割するパッケージ
+\usepackage{ulem} %下線を引く
+
+\usepackage{booktabs}  % 表の罫線を太くする
+% \usepackage{textcomp}
+% \usepackage{tikz}
+\usepackage{verbatim}
+\usepackage{titlesec} %タイトルの文字サイズを変更する
+\usepackage{circuitikz} % 回路図用パッケージ
+\usetikzlibrary{circuits.logic.US}
+%ここからソースコードの表示に関する設定
+\usepackage{mdframed} %文章囲むフレームを作成
+
+\lstset{
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue}\bfseries,
+    commentstyle=\color{darkgray}\itshape,
+    stringstyle=\color{red},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    stepnumber=1,
+    numbersep=5pt,
+    backgroundcolor=\color{white},
+    frame=single,
+    tabsize=4,
+    captionpos=b,
+    breaklines=true,
+    breakatwhitespace=false,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    morekeywords={},
+    deletekeywords={},
+    morecomment=[l]{//},
+    morecomment=[s]{/*}{*/},
+    morestring=[b]",
+    morestring=[b]',
+    escapeinside={(*@}{@*)}
+}
+
+\lstdefinestyle{pythonstyle}{
+    language=Python,
+    morekeywords={self, as, with},
+    backgroundcolor={\color{white}},
+    keywordstyle=\color{blue},
+    commentstyle=\color{green},
+    stringstyle=\color{red}
+}
+
+\newcommand{\fref}[1]{図\ref{#1}} %\fref{fig:}コマンドで"図１"などと表示
+\newcommand{\tref}[1]{表\ref{#1}} %\tref{tb:}コマンドで"表１"などと表示
+\newcommand{\eref}[1]{式(\ref{#1})} %\eref{eq:}コマンドで"式(１)"などと表示
+\newcommand{\lref}[1]{ソースコード\ref{#1}} %\lref{lst:}コマンドで"ソースコード１"などと表示
+\newcommand{\sref}[1]{\ref{#1}節} %\sref{}コマンドで"2.1節，2.1.1節"などと表示
+\newcommand{\cref}[1]{\ref{#1}章} %\cref{chp:}コマンドで"2章"などと表示
+\newcommand{\ShowPython}[1]{%
+  \noindent
+  \textbf{#1:}
+  \lstinputlisting[style=pythonstyle, caption=#1, label=lst:#1]{#1}
+  \textbf{Execution Result of #1:}
+  \immediate\write18{python #1 > #1.out}%
+  \VerbatimInput{#1.out}%
+}
+
+\renewcommand{\lstlistingname}{ソースコード}
+
+\titleformat{\section}{\large\bfseries}{\thesection 章}{1em}{}
+
+\geometry{left=10mm,right=10mm,top=10mm,bottom=15mm} %用紙の余白の指定
+
+\def\sec#1{\section{#1}}
+\def\ssec#1{\subsection{#1}}
+\def\sssec#1{\subsubsection{#1}}
+
+\setlength{\columnsep}{20pt}    % カラム間の間隔を調整
+\setlength{\columnseprule}{0.2pt}  % 仕切り線の太さを0.5ptに設定
+
+\begin{document}
+    \input{Ch1.tex}
+    \input{Ch2.tex}
+    \input{Ch3.tex}
+\end{document}

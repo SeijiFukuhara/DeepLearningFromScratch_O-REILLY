@@ -1,0 +1,39 @@
+body {
+    counter-set: chapter section subsection proposition;
+}
+
+h1 {
+    counter-set: section 0 proposition 0 subsection 0;
+}
+
+
+h1::before {
+    content: counter(chapter)".";
+    counter-increment: chapter;
+}
+
+
+h2 {
+    counter-set: subsection 0 proposition 0;
+}
+
+h2::before {
+    content: counter(chapter)"." counter(section)".";
+    counter-increment: section;
+}
+
+
+h3::before {
+    content: counter(chapter)"." counter(section) "." counter(subsection);
+    counter-increment: subsection;
+}
+
+h4::after {
+    content: counter(chapter)"." counter(section) "." counter(proposition);
+    counter-increment: proposition;
+}
+
+
+a.anchor-link {
+    display: none;
+}

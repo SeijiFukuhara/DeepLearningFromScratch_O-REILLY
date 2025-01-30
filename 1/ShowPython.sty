@@ -1,0 +1,14 @@
+\ProvidesPackage{myPython}
+
+\RequirePackage{minted}  % Pythonコードのハイライト
+\RequirePackage{fancyvrb} % 実行結果の表示
+
+\newcommand{\ShowPython}[1]{%
+  \noindent
+  \textbf{Python Code:} \\[0.2em]
+  \inputminted{python}{#1} \\[0.5em]
+  \textbf{Execution Result:} \\[0.2em]
+  \VerbatimInput{|"python #1"}%
+}
+
+\endinput
