@@ -50,7 +50,7 @@ def update_headings_in_ipynb(ipynb_file):
         json.dump(data, f, indent=2, ensure_ascii=False)
 
 # 実行例
-update_headings_in_ipynb('1/Ch01.ipynb')
-update_headings_in_ipynb('1/Ch02.ipynb')
-update_headings_in_ipynb('1/Ch03.ipynb')
-update_headings_in_ipynb('1/Ch04.ipynb')
+update_headings_in_ipynb('Ch01.ipynb')
+update_headings_in_ipynb('Ch02.ipynb')
+update_headings_in_ipynb('Ch03.ipynb')
+update_headings_in_ipynb('Ch04.ipynb')
