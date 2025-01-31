@@ -6,3 +6,4 @@
 1. エディタの選択
     jupyuter notebook、jupyter lab、VSCodeのなかでどれを選ぶかに非常に苦戦した。
 1. .ipynbファイルに章番号を振ること。
+## Pythonで学ぶディープラーニングの理論と実装
